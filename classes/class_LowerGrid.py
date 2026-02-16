@@ -19,6 +19,7 @@ class LowerGrid(Entity):
 
         self.grid_width = width
         self.grid_height = height
+        self.grid_scale = width
 
     def get_cells_coordinates(self):
         self.cell_size = self.scale_x / self.grid_width  # предполагаем квадратные ячейки  

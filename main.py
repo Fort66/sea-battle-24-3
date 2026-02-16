@@ -11,14 +11,14 @@ from classes.class_LowerGrid import LowerGrid
 from classes.class_SceneText import SceneText
 
 
-# sea_plane = SeaPlane()
+sea_plane = SeaPlane()
 grid_overlay = GridOverlay(10, 10)
 lower_grid = LowerGrid(11, 11)
 
 # ic(lower_grid.get_cells_coordinates())
 # editor = GridEditor()
 
-letters_list = [ascii_letters[i] for i in range(10)]
+# letters_list = [ascii_letters[i] for i in range(10)]
 
 
 # letters = [
@@ -30,10 +30,10 @@ letters_list = [ascii_letters[i] for i in range(10)]
 #     ) for symbol in letters_list
 # ]
 
-letter = SceneText(
-    text=letters_list[0],
-    position=(0.045454546, 0.045454546, 0),
-)
+# letter = SceneText(
+#     text=letters_list[0],
+#     position=(0.045454546, 0.045454546, 0),
+# )
 
 if __name__ == "__main__":
     window.vsync = False
@@ -53,6 +53,25 @@ if __name__ == "__main__":
 
 
 
+    # cell_text_local = Text(  
+    # text="(5,4)",  
+    # parent=lower_grid,  # локальные координаты  
+    # position=(0, 0, 0),  # будет установлен ниже  
+    # scale=2,  
+    # origin=(0,0)  
+    # )  
+  
+    # # Расчет локальной позиции ячейки  
+    # grid_size = 10  
+    # cell_x = 5  
+    # cell_z = 4  
+    # local_x = (cell_x + 0.5) / grid_size - 0.5  
+    # local_z = (cell_z + 0.5) / grid_size - 0.5  
+    # cell_text_local.position = (local_x, 0, local_z) 
+
+
+
+
 
     EditorCamera()
     camera.rotation = Vec3(0, 0, 0)
@@ -60,21 +79,43 @@ if __name__ == "__main__":
     camera.rotation = Vec3(30, 0, 0)
 
 
-    def on_click():
-        if mouse.hovered_entity == lower_grid:
-            local_x = mouse.point.x + .5
-            local_y = mouse.point.y + .5
-            cell_x = floor(local_x * lower_grid.grid_width)
-            cell_y = floor(local_y * lower_grid.grid_height)
-            local_center = Vec3((cell_x + 0.5) / lower_grid.grid_width, (cell_y + 0.5) / lower_grid.grid_height, 0)
-            world_center_cell = lower_grid.world_position + local_center * lower_grid.world_scale
+    # Создаем сетку 10x10  
+    # grid_entity = Entity(model=Grid(10, 10), scale=10, rotation_x=90)  
+    
+    # Функция для получения центра ячейки в мировых координатах  
+    # def get_cell_center(grid_x, grid_z, grid_size=lower_grid.grid_width, grid_scale=lower_grid.grid_scale):  
+    #     cell_size = grid_scale / grid_size  
+    #     world_x = (grid_x + 0.5) * cell_size - grid_scale/2  
+    #     world_z = (grid_z + 0.5) * cell_size - grid_scale/2  
+    #     return (world_x, 0, world_z)  
+    
+    # # Создаем текст в центре ячейки (2, 3)  
+    # cell_text = Text(  
+    #     text="(2,3)",  
+    #     parent=scene,  # мировые координаты  
+    #     position=get_cell_center(2, 3),  
+    #     scale=2,  
+    #     origin=(0,0)  # центрирование текста  
+    # )  
 
-            ic(f'Local center: {local_center}')
-            ic(f'Cell indices: {cell_x}, {cell_y}')
-            ic(f'World center: {world_center_cell}')
+  
+    # EditorCamera()  
+
+    # def on_click():
+    #     if mouse.hovered_entity == lower_grid:
+    #         local_x = mouse.point.x + .5
+    #         local_y = mouse.point.y + .5
+    #         cell_x = floor(local_x * lower_grid.grid_width)
+    #         cell_y = floor(local_y * lower_grid.grid_height)
+    #         local_center = Vec3((cell_x + 0.5) / lower_grid.grid_width, (cell_y + 0.5) / lower_grid.grid_height, 0)
+    #         world_center_cell = lower_grid.world_position + local_center * lower_grid.world_scale
+
+    #         ic(f'Local center: {local_center}')
+    #         ic(f'Cell indices: {cell_x}, {cell_y}')
+    #         ic(f'World center: {world_center_cell}')
 
 
-    lower_grid.on_click = on_click
+    # lower_grid.on_click = on_click
 
 
 
