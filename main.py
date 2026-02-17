@@ -2,7 +2,7 @@ from ursina import *
 
 from icecream import ic
 
-from classes.create_objects import my_wather_area, enemy_wather_area, nav_button
+from classes.create_objects import my_wather_area, enemy_wather_area, nav_button, my_four_deck
 
 scene1_coordinates = my_wather_area.position
 scene2_coordinates = enemy_wather_area.position

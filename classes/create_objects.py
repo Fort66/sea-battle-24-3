@@ -4,6 +4,7 @@ from .class_SeaPlane import SeaPlane
 from .class_GridOverlay import GridOverlay
 from .class_CoordinatesText import CoordinatesText
 from .class_NavButton import NavButton
+from .class_Ships import Ships
 
 
 my_wather_area = SeaPlane()
@@ -21,3 +22,11 @@ enemy_lower_grid = GridOverlay(12, 12, color=color.rgba(0, 0, 0, 0), position=Ve
 enemy_coordinates = CoordinatesText(enemy_lower_grid)
 
 nav_button = NavButton()
+
+
+my_four_deck = Ships(
+    model='assets/models/newport/uss_newport_news_war_thunder.glb',
+    scale=.015,
+    position=Vec3(10, .2, 5),
+    rotation=Vec3(90, -90, 0)
+)
