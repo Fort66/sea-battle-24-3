@@ -4,7 +4,7 @@ from icecream import ic
 
 from classes.class_ShipsCreater import ShipsCreater
 
-from classes.create_objects import my_water_area, enemy_water_area, nav_button, four_deck_menu
+from classes.create_objects import my_water_area, enemy_water_area, nav_button, four_deck_menu, three_deck_menu, two_deck_menu, one_deck_menu
 
 scene1_coordinates = my_water_area.position
 scene2_coordinates = enemy_water_area.position

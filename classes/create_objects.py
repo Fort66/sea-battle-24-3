@@ -28,7 +28,7 @@ nav_button = NavButton(position=Vec3(-1, .4, 0))
 
 four_deck_menu = ShipsMenu(
     model='assets/models/newport/uss_newport_news_war_thunder.glb',
-    scale=.007,
+    scale=.011,
     position=Vec3(8, .2, 5),
     rotation=Vec3(90, 90, 0),
     ship_counter=1,
@@ -37,27 +37,27 @@ four_deck_menu = ShipsMenu(
 
 three_deck_menu = ShipsMenu(
     model='assets/models/ton/ijn_tone_war_thunder.glb',
-    scale=.005,
-    position=Vec3(8, .2, 5),
+    scale=.009,
+    position=Vec3(8, .2, 3),
     rotation=Vec3(90, 90, 0),
-    ship_counter=1,
+    ship_counter=2,
     deck_amount=3,
 )
 
 two_deck_menu = ShipsMenu(
     model='assets/models/lowa/uss_iowa_model.glb',
-    scale=.003,
-    position=Vec3(8, .2, 5),
-    rotation=Vec3(90, 90, 0),
-    ship_counter=1,
-    deck_amount=3,
+    scale=.006,
+    position=Vec3(8, .2, 1),
+    rotation=Vec3(90, 0, 0),
+    ship_counter=3,
+    deck_amount=2,
 )
 
 one_deck_menu = ShipsMenu(
     model='assets/models/meteor/meteoro_class_patrol_vessel.glb',
     scale=.007,
-    position=Vec3(8, .2, 5),
-    rotation=Vec3(90, 90, 0),
-    ship_counter=1,
-    deck_amount=3,
+    position=Vec3(8, .2, -1),
+    rotation=Vec3(90, 0, 0),
+    ship_counter=4,
+    deck_amount=4,
 )
