@@ -3,50 +3,51 @@ from ursina.prefabs.draggable import Draggable
 
 from icecream import ic
 
-class Ships(Entity):
+from .class_ShipsCreater import ShipsCreater
+
+ships_creater = ShipsCreater()
+
+class ShipsMenu(Entity):
     def __init__(self,
-                whater=None,
+                water=None,
                 model=None,
                 texture=None,
                 scale=1,
                 rotation=Vec3(0, 0, 0),
                 position=Vec3(0, 0, 0),
+                ship_counter=0,
                 deck_amount=0
                 ):
 
 
         super().__init__(
             model = model,
+            texture=texture,
             scale = scale,
             rotation = rotation,
             position = position,
             collider='box'
         )
 
-        self.whater = whater
+        self.whater = water
         self.model = model
         self.texture = texture
         self.scale = scale
         self.rotation = rotation
         self.position = position
+        self.ship_counter = ship_counter
         self.deck_amount = deck_amount
-        self.following_mouse = False
-
-        self.is_grabbed = True
 
     def input(self, key):
-        if self.is_grabbed:
-            if key == 'left mouse down':
-                if mouse.hovered_entity == self:
-                    self.following_mouse = True
+        if key == 'left mouse down':
+            if mouse.hovered_entity == self:
+                self.ship_counter -= 1
 
-            if key == 'left mouse up':
-                self.following_mouse = False
+                ships_creater.count_deck = self.deck_amount
+                ships_creater.create_ship_command = True
+                ships_creater.model = self.model
+                ships_creater.texture = self.texture
 
-            if key == 'right mouse down':
-                self.rotation += Vec3(0, 90, 0)
-
-    def update(self):
-        if self.following_mouse:
-            self.position = Vec3(mouse.world_point[0], 0, mouse.world_point[2])
+                if self.ship_counter <= 0:
+                    self.visible = False
 
