@@ -42,16 +42,18 @@ class ShipsMenu(Entity):
     def input(self, key):
         if key == 'left mouse down':
             if mouse.hovered_entity == self and self.sub_ships_counter:
-                self.sub_ships_counter = False
+                # if self.sub_ships_counter:
                 self.ship_counter -= 1
+                    # self.sub_ships_counter = False
 
                 ships_creater.count_deck = self.deck_amount
                 ships_creater.create_ship_command = True
                 ships_creater.model = self.model
                 ships_creater.texture = self.texture
 
-                if self.ship_counter <= 0:
-                    self.visible = False
+        # if key == 'left mouse up':
+        #     self.sub_ships_counter = True
 
-        if key == 'left mouse up':
-            self.sub_ships_counter = True
+        if self.ship_counter <= 0:
+            self.visible = False
+

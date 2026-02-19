@@ -31,6 +31,7 @@ class Ships(Entity):
         self.position = position
         self.deck_amount = deck_amount
         self.following_mouse = False
+        self.is_selected = False
 
         self.is_grabbed = True
 
@@ -38,13 +39,16 @@ class Ships(Entity):
         if self.is_grabbed:
             if key == 'left mouse down':
                 if mouse.hovered_entity == self:
+                    self.is_selected = True
                     self.following_mouse = True
 
             if key == 'left mouse up':
+                self.is_selected = False
                 self.following_mouse = False
 
             if key == 'right mouse down':
-                self.rotation += Vec3(0, 90, 0)
+                if self.is_selected:
+                    self.rotation += Vec3(0, 90, 0)
 
     def update(self):
         if self.following_mouse:
