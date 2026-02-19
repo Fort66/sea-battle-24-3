@@ -1,4 +1,4 @@
-from ursina import Vec3
+from ursina import Vec3, color
 
 from .class_Ships import Ships
 

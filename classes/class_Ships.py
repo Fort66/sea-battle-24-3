@@ -16,10 +16,11 @@ class Ships(Entity):
 
 
         super().__init__(
-            model = model,
-            scale = scale,
-            rotation = rotation,
-            position = position,
+            model=model,
+            scale=scale,
+            rotation=rotation,
+            position=position,
+            color=color.white,
             collider='box'
         )
 
